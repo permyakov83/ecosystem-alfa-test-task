@@ -1,66 +1,55 @@
 import "./App.css"
-import { Counter } from "./features/counter/Counter"
-import { Quotes } from "./features/quotes/Quotes"
-import logo from "./logo.svg"
 
 const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <Quotes />
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://reselect.js.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Reselect
-          </a>
-        </span>
-      </header>
+    <div className="container mx-auto p-5">
+      <h1 className="py-5 text-3xl font-bold">Hello world!</h1>
+      <div className="overflow-hidden rounded-[0.5rem] border shadow">
+        <div className="grid items-start justify-center gap-6 rounded-lg p-8 md:grid lg:grid-cols-2 xl:grid-cols-3">
+          <div className="rounded-xl border p-5 shadow">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita
+            cupiditate, doloribus asperiores quo earum rem excepturi odit
+            repellat vitae officia sed laboriosam aperiam! Assumenda, delectus
+            repellendus repudiandae enim quae sunt.
+          </div>
+          <div className="rounded-xl border p-5 shadow">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita
+            cupiditate, doloribus asperiores quo earum rem excepturi odit
+            repellat vitae officia sed laboriosam aperiam! Assumenda, delectus
+            repellendus repudiandae enim quae sunt.
+          </div>
+          <div className="rounded-xl border p-5 shadow">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita
+            cupiditate, doloribus asperiores quo earum rem excepturi odit
+            repellat vitae officia sed laboriosam aperiam! Assumenda, delectus
+            repellendus repudiandae enim quae sunt.
+          </div>
+          <div className="rounded-xl border p-5 shadow">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita
+            cupiditate, doloribus asperiores quo earum rem excepturi odit
+            repellat vitae officia sed laboriosam aperiam! Assumenda, delectus
+            repellendus repudiandae enim quae sunt.
+          </div>
+          <div className="rounded-xl border p-5 shadow">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita
+            cupiditate, doloribus asperiores quo earum rem excepturi odit
+            repellat vitae officia sed laboriosam aperiam! Assumenda, delectus
+            repellendus repudiandae enim quae sunt.
+          </div>
+          <div className="rounded-xl border p-5 shadow">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita
+            cupiditate, doloribus asperiores quo earum rem excepturi odit
+            repellat vitae officia sed laboriosam aperiam! Assumenda, delectus
+            repellendus repudiandae enim quae sunt.
+          </div>
+          <div className="rounded-xl border p-5 shadow">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita
+            cupiditate, doloribus asperiores quo earum rem excepturi odit
+            repellat vitae officia sed laboriosam aperiam! Assumenda, delectus
+            repellendus repudiandae enim quae sunt.
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
