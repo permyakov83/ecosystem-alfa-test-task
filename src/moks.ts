@@ -13,7 +13,7 @@ export const facts = {
   ],
 }
 
-export const image = [
+export const images = [
   {
     id: "3rv",
     url: "https://cdn2.thecatapi.com/images/3rv.jpg",
