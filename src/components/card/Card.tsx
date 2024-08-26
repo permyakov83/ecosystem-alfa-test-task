@@ -3,6 +3,7 @@ import IconButton from "../IconButton/IconButton"
 import { FcLikePlaceholder } from "@react-icons/all-files/fc/FcLikePlaceholder"
 import { RiDislikeLine } from "@react-icons/all-files/ri/RiDislikeLine"
 import { Link } from "react-router-dom"
+import { store } from "../../app/store"
 
 export type CardProps = {
   id: string
@@ -11,6 +12,10 @@ export type CardProps = {
 }
 
 const Card = ({ id, catsFact, imgUrl }: CardProps) => {
+  const handleClick = () => {
+    console.log(store.getState())
+  }
+
   return (
     <Link to={`/card/${id}`}>
       <div className="relative h-[330px] w-[350px] overflow-hidden rounded-xl border p-5 shadow hover:bg-slate-100">
@@ -22,10 +27,16 @@ const Card = ({ id, catsFact, imgUrl }: CardProps) => {
           />
         </div>
         <p className="w-[250px] truncate">{catsFact}</p>
-        <IconButton className="right-8 top-8 hover:scale-125">
+        <IconButton
+          handleClick={handleClick}
+          className="right-8 top-8 hover:scale-125"
+        >
           <FcLikePlaceholder size={32} />
         </IconButton>
-        <IconButton className="left-8 top-8 hover:scale-125">
+        <IconButton
+          handleClick={handleClick}
+          className="left-8 top-8 hover:scale-125"
+        >
           <RiDislikeLine size={32} fill="white" />
         </IconButton>
       </div>

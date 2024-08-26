@@ -7,10 +7,8 @@ interface IDataMerging {
   images: ImagesApiResponse
 }
 
-type CardListProps = CardProps[]
-
-export function DataMerging({ facts, images }: IDataMerging): CardListProps {
-  const cardListData: CardListProps = []
+export function DataMerging({ facts, images }: IDataMerging): CardProps[] {
+  const cardListData: CardProps[] = []
 
   if (facts.data.length !== images.length) return cardListData
 

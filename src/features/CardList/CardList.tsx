@@ -1,9 +1,14 @@
-import Card from "../../components/Card/Card"
+import Card, { type CardProps } from "../../components/Card/Card"
 import { useGetFactsQuery } from "./factsApiSlice"
 import { DataMerging } from "../../utils/dataMerging"
 import { useGetImagesQuery } from "./imagesApiSlice"
+import { type AppDispatch, store } from "../../app/store"
+import { cardsActions } from "./cardsSlice"
+import { useAppDispatch } from "../../app/hooks"
 
 const CardList = () => {
+  const dispatch = useAppDispatch<AppDispatch>()
+
   const facts = useGetFactsQuery(9)
   const images = useGetImagesQuery(9)
 
@@ -28,10 +33,17 @@ const CardList = () => {
     facts.data !== undefined &&
     images.data !== undefined
   ) {
-    const cards = DataMerging({
+    console.log(facts.data)
+    console.log(images.data)
+
+    const cards: CardProps[] = DataMerging({
       facts: facts.data,
       images: images.data,
     })
+    console.log(cards)
+    dispatch(cardsActions.addCards(facts.data.data))
+
+    console.log(store.getState().cards)
 
     return (
       <>
