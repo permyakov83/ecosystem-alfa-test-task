@@ -1,13 +1,15 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit"
-// import { type CardProps } from "src/components/Card/Card"
+import { type CardProps } from "../../components/Card/Card"
 
-const initialState: string[] = []
+export type CardsState = CardProps[]
+
+const initialState: CardsState = []
 
 export const cardsSlice = createSlice({
   name: "cards",
   initialState,
   reducers: {
-    addCards: (state, actions: PayloadAction<string[]>) => {
+    addCards: (state, actions: PayloadAction<CardsState>) => {
       state = actions.payload
     },
   },

@@ -5,7 +5,7 @@ import { RiDislikeLine } from "@react-icons/all-files/ri/RiDislikeLine"
 import { Link } from "react-router-dom"
 import { store } from "../../app/store"
 
-export type CardProps = {
+export interface CardProps {
   id: string
   catsFact: string
   imgUrl: string

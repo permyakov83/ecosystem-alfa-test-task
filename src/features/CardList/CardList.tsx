@@ -33,15 +33,12 @@ const CardList = () => {
     facts.data !== undefined &&
     images.data !== undefined
   ) {
-    console.log(facts.data)
-    console.log(images.data)
-
     const cards: CardProps[] = DataMerging({
       facts: facts.data,
       images: images.data,
     })
-    console.log(cards)
-    dispatch(cardsActions.addCards(facts.data.data))
+
+    dispatch(cardsActions.addCards(cards))
 
     console.log(store.getState().cards)
 
