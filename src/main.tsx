@@ -1,9 +1,22 @@
 import React from "react"
-import { createRoot } from "react-dom/client"
-import { Provider } from "react-redux"
-import App from "./App"
+import Main from "./pages/Main"
 import { store } from "./app/store"
+import { Provider } from "react-redux"
+import CardPage from "./pages/CardPage"
+import { createRoot } from "react-dom/client"
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import "./index.css"
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Main />,
+  },
+  {
+    path: "/card/:id",
+    element: <CardPage />,
+  },
+])
 
 const container = document.getElementById("root")
 
@@ -13,7 +26,7 @@ if (container) {
   root.render(
     <React.StrictMode>
       <Provider store={store}>
-        <App />
+        <RouterProvider router={router} />
       </Provider>
     </React.StrictMode>,
   )

@@ -1,27 +1,24 @@
-import { type CardListProps } from "@/components/CardList/CardList"
+import { type CardProps } from "../components/Card/Card"
+import { type FactsApiResponse } from "../features/CardList/factsApiSlice"
+import { type ImagesApiResponse } from "../features/CardList/imagesApiSlice"
 
 interface IDataMerging {
-  facts: { data: string[] }
-  images: {
-    id: string
-    url: string
-    width: number
-    height: number
-  }[]
+  facts: FactsApiResponse
+  images: ImagesApiResponse
 }
 
-export function DataMerging(data: IDataMerging): CardListProps {
-  const cardListData: CardListProps = { data: [] }
+type CardListProps = CardProps[]
 
-  if (data.facts.data.length !== data.images.length) return cardListData
+export function DataMerging({ facts, images }: IDataMerging): CardListProps {
+  const cardListData: CardListProps = []
 
-  for (let i = 0; i < data.facts.data.length; i++) {
-    cardListData.data[i] = {
-      id: data.images[i].id,
-      cards: {
-        imgUrl: data.images[i].url,
-        catsFact: data.facts.data[i],
-      },
+  if (facts.data.length !== images.length) return cardListData
+
+  for (let i = 0; i < facts.data.length; i++) {
+    cardListData[i] = {
+      id: images[i].id,
+      imgUrl: images[i].url,
+      catsFact: facts.data[i],
     }
   }
 

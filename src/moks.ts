@@ -1,15 +1,14 @@
 export const facts = {
   data: [
-    "A cats field of vision is about 185 degrees.",
-    "The ancestor of all domestic cats is the African Wild Cat which still exists today.",
-    "Cats have individual preferences for scratching surfaces and angles. Some are horizontal scratchers while others exercise their claws vertically.",
-    "Cats can jump up to six times their length.",
-    "A cat's brain is more similar to a man's brain than that of a dog.",
-    "A cat has been mayor of Talkeetna, Alaska, for 15 years. His name is Stubbs.",
-    "Your cat recognizes your voice but just acts too cool to care (probably because they are).",
-    "A cat can spend five or more hours a day grooming himself.",
-    "In ancient Egypt, mummies were made of cats, and embalmed mice were placed with them in their tombs. In one ancient city, over 300,000 cat mummies were found.",
-    "Wikipedia has a recording of a cat meowing because why not?",
+    "Взрослые кошки мяукают только для общения с людьми",
+    "Тайленол и шоколад ядовиты для кошек",
+    "Кошки имеют индивидуальные предпочтения в выборе поверхности для царапанья и угла наклона. Некоторые из них любят горизонтальные царапины, в то время как другие упражняют свои когти вертикально.",
+    "Мейн-кун - единственная исконно американская длинношерстная порода",
+    "У всех кошек есть три набора длинных волосков, чувствительных к давлению: усы, брови и волоски между подушечками лап",
+    "При хорошем обращении кошка может прожить двадцать и более лет, но средняя продолжительность жизни домашней кошки составляет 14 лет",
+    "Вопреки распространенному мнению, кошка - социальное животное. Домашняя кошка будет реагировать и отвечать на речь, и, похоже, ей нравится общение с человеком",
+    "Есть кошки, которые выжили после падения с высоты более 32 этажей (320 метров) на бетон",
+    "В Древнем Египте из кошек делали мумии, а забальзамированных мышей клали вместе с ними в гробницы. В одном древнем городе было найдено более 300 000 кошачьих мумий.",
   ],
 }
 
@@ -49,12 +48,6 @@ export const images = [
     url: "https://cdn2.thecatapi.com/images/dbm.jpg",
     width: 500,
     height: 332,
-  },
-  {
-    id: "MTYxMTE2Mg",
-    url: "https://cdn2.thecatapi.com/images/MTYxMTE2Mg.jpg",
-    width: 960,
-    height: 720,
   },
   {
     id: "khyg1KLOZ",
