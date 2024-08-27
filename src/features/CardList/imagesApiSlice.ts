@@ -10,14 +10,14 @@ export type ImagesApiResponse = Image[]
 export const imagesApiSlice = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "https://api.thecatapi.com/v1/images/search",
-    prepareHeaders: headers => {
-      headers.set("Content-Type", "application/json")
-      headers.set(
-        "X-API-KEY",
-        "live_cWjWIGrm8s2tXlzEJmhoMm39g7vjeEaTcxbRrf71tIYo8Hy7OEXgLcPsD7R8KbwO",
-      )
-      return headers
-    },
+    // prepareHeaders: headers => {
+    //   headers.set("Content-Type", "application/json")
+    //   headers.set(
+    //     "X-API-KEY",
+    //     "live_cWjWIGrm8s2tXlzEJmhoMm39g7vjeEaTcxbRrf71tIYo8Hy7OEXgLcPsD7R8KbwO",
+    //   )
+    //   return headers
+    // },
   }),
   reducerPath: "imagesApi",
   tagTypes: ["Images"],

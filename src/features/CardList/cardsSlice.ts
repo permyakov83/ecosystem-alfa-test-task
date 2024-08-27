@@ -16,6 +16,12 @@ export const cardsSlice = createSlice({
     addCardsData: (state, actions: PayloadAction<CardProps[]>) => {
       state.data = actions.payload
     },
+    cardRemove: (state, actions: PayloadAction<string>) => {
+      const index = state.data.findIndex(item => item.id === actions.payload)
+      if (index !== undefined) {
+        state.data.splice(index, 1)
+      }
+    },
   },
 })
 

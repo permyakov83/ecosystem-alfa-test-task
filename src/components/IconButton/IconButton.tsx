@@ -1,4 +1,4 @@
-import { type ReactNode } from "react"
+import { type ReactEventHandler, type ReactNode } from "react"
 
 type IconButtonProps = {
   children: ReactNode
