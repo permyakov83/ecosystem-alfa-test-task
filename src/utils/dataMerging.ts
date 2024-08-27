@@ -2,12 +2,12 @@ import { type CardProps } from "../components/Card/Card"
 import { type FactsApiResponse } from "../features/CardList/factsApiSlice"
 import { type ImagesApiResponse } from "../features/CardList/imagesApiSlice"
 
-interface IDataMerging {
+interface IDataMergingInput {
   facts: FactsApiResponse
   images: ImagesApiResponse
 }
 
-export function DataMerging({ facts, images }: IDataMerging): CardProps[] {
+export function DataMerging({ facts, images }: IDataMergingInput): CardProps[] {
   const cardListData: CardProps[] = []
 
   if (facts.data.length !== images.length) return cardListData

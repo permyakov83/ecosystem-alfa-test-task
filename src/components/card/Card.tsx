@@ -13,7 +13,7 @@ export interface CardProps {
 
 const Card = ({ id, catsFact, imgUrl }: CardProps) => {
   const handleClick = () => {
-    console.log(store.getState())
+    console.log(store.getState().cardsData.data)
   }
 
   return (

@@ -1,18 +1,11 @@
-import Card, { type CardProps } from "../../components/Card/Card"
-import { useGetFactsQuery } from "./factsApiSlice"
-import { DataMerging } from "../../utils/dataMerging"
-import { useGetImagesQuery } from "./imagesApiSlice"
-import { type AppDispatch, store } from "../../app/store"
-import { cardsActions } from "./cardsSlice"
-import { useAppDispatch } from "../../app/hooks"
+import { store } from "../../app/store"
+import Card from "../../components/Card/Card"
+import useGetCardsData from "../../hooks/useGetCardsData"
 
 const CardList = () => {
-  const dispatch = useAppDispatch<AppDispatch>()
+  const cardData = useGetCardsData()
 
-  const facts = useGetFactsQuery(9)
-  const images = useGetImagesQuery(9)
-
-  if (facts.isError || images.isError) {
+  if (cardData.isError) {
     return (
       <div>
         <h1>Что-то пошло не так :(</h1>
@@ -20,7 +13,8 @@ const CardList = () => {
     )
   }
 
-  if (facts.isLoading || images.isLoading) {
+  if (cardData.isLoading) {
+    console.log("Загружаем информацию про кошек...")
     return (
       <div>
         <h1>Загружаем информацию про кошек...</h1>
@@ -28,20 +22,9 @@ const CardList = () => {
     )
   }
 
-  if (
-    (facts.isSuccess || images.isSuccess) &&
-    facts.data !== undefined &&
-    images.data !== undefined
-  ) {
-    const cards: CardProps[] = DataMerging({
-      facts: facts.data,
-      images: images.data,
-    })
-
-    dispatch(cardsActions.addCards(cards))
-
-    console.log(store.getState().cards)
-
+  if (cardData.isSuccess) {
+    console.log("Загрузили информацию про кошек...")
+    const cards = store.getState().cardsData.data
     return (
       <>
         {cards.length === 0 ? (

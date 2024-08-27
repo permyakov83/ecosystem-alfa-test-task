@@ -1,5 +1,5 @@
 import React from "react"
-import Main from "./pages/Main"
+import Main from "./pages/Home"
 import { store } from "./app/store"
 import { Provider } from "react-redux"
 import CardPage from "./pages/CardPage"

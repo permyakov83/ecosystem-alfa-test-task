@@ -1,17 +1,16 @@
-import { type CardProps } from "../components/Card/Card"
-import { facts, images } from "../moks"
-import { DataMerging } from "../utils/dataMerging"
+import { store } from "../app/store"
 import { Link, useParams } from "react-router-dom"
+import { type CardProps } from "../components/Card/Card"
 
 const CardPage = () => {
-  const data = DataMerging({ facts, images })
+  const data = store.getState().cardsData.data
   const { id } = useParams()
 
   function isId(card: CardProps) {
     return card.id === id
   }
 
-  const cardData = data.cards.find(isId)
+  const cardData = data.find(isId)
 
   return (
     <div className="container mx-auto p-5">

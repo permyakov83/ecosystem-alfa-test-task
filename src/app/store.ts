@@ -8,7 +8,7 @@ import cardsSlice from "../features/CardList/cardsSlice"
 // `combineSlices` automatically combines the reducers using
 // their `reducerPath`s, therefore we no longer need to call `combineReducers`.
 const rootReducer = combineSlices(factsApiSlice, imagesApiSlice, {
-  cards: cardsSlice,
+  cardsData: cardsSlice,
 })
 // Infer the `RootState` type from the root reducer
 export type RootState = ReturnType<typeof rootReducer>
