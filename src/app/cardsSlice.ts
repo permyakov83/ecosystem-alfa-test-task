@@ -1,11 +1,13 @@
+import { type TCardsData } from "@/components/CardList/CardList"
+import { type CardProps } from "../components/Card/Card"
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit"
-import { type CardProps } from "../../components/Card/Card"
 
-export type CardsState = {
-  data: CardProps[]
+export type LikeState = {
+  id: string
+  likeState: boolean
 }
 
-const initialState: CardsState = {
+const initialState: TCardsData = {
   data: [],
 }
 
@@ -22,9 +24,9 @@ export const cardsSlice = createSlice({
         state.data.splice(index, 1)
       }
     },
-    likeToggle: (state, actions: PayloadAction<string>) => {
-      const card = state.data.find(item => item.id === actions.payload)
-      if (card !== undefined) card.like = !card.like
+    likeToggle: (state, actions: PayloadAction<LikeState>) => {
+      const card = state.data.find(item => item.id === actions.payload.id)
+      if (card !== undefined) card.like = actions.payload.likeState
     },
   },
 })

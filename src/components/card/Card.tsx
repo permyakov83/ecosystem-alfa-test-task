@@ -1,19 +1,18 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import IconButton from "../IconButton/IconButton"
-import { FcLike } from "@react-icons/all-files/fc/FcLike"
-import { FcLikePlaceholder } from "@react-icons/all-files/fc/FcLikePlaceholder"
-import { RiDislikeLine } from "@react-icons/all-files/ri/RiDislikeLine"
-import { Link } from "react-router-dom"
-import { type AppDispatch, store } from "../../app/store"
 import { useState } from "react"
+import { Link } from "react-router-dom"
 import { useAppDispatch } from "../../app/hooks"
-import { cardsActions } from "../../features/Cards/cardsSlice"
+import IconButton from "../IconButton/IconButton"
+import { type AppDispatch } from "../../app/store"
+import { FcLike } from "@react-icons/all-files/fc/FcLike"
+import { cardsActions } from "../../app/cardsSlice"
+import { RiDislikeLine } from "@react-icons/all-files/ri/RiDislikeLine"
+import { FcLikePlaceholder } from "@react-icons/all-files/fc/FcLikePlaceholder"
 
 export interface CardProps {
   id: string
   like: boolean
-  catsFact: string
   imgUrl: string
+  catsFact: string
 }
 
 const Card = ({ id, like, catsFact, imgUrl }: CardProps) => {
@@ -23,16 +22,11 @@ const Card = ({ id, like, catsFact, imgUrl }: CardProps) => {
 
   const handleClickLike = () => {
     setLikeState(!likeState)
-    dispatch(cardsActions.likeToggle(id))
-    console.log(store.getState().cardData.data)
+    dispatch(cardsActions.likeToggle({ id, likeState }))
   }
 
   const handleClickDislike = () => {
-    console.log("До")
-    console.log(store.getState().cardData.data)
     dispatch(cardsActions.cardRemove(id))
-    console.log("После")
-    console.log(store.getState().cardData.data)
   }
 
   return (

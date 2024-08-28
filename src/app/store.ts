@@ -1,9 +1,9 @@
 import type { Action, ThunkAction } from "@reduxjs/toolkit"
 import { combineSlices, configureStore } from "@reduxjs/toolkit"
 import { setupListeners } from "@reduxjs/toolkit/query"
-import { factsApiSlice } from "../features/Cards/factsApiSlice"
-import { imagesApiSlice } from "../features/Cards/imagesApiSlice"
-import cardsSlice from "../features/Cards/cardsSlice"
+import { factsApiSlice } from "../api/factsApiSlice"
+import { imagesApiSlice } from "../api/imagesApiSlice"
+import cardsSlice from "./cardsSlice"
 
 // `combineSlices` automatically combines the reducers using
 // their `reducerPath`s, therefore we no longer need to call `combineReducers`.

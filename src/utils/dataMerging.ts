@@ -1,6 +1,6 @@
 import { type CardProps } from "../components/Card/Card"
-import { type FactsApiResponse } from "../features/Cards/factsApiSlice"
-import { type ImagesApiResponse } from "../features/Cards/imagesApiSlice"
+import { type FactsApiResponse } from "../api/factsApiSlice"
+import { type ImagesApiResponse } from "../api/imagesApiSlice"
 
 interface IDataMergingInput {
   facts: FactsApiResponse
