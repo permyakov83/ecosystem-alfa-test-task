@@ -7,7 +7,7 @@ import { Link } from "react-router-dom"
 import { type AppDispatch, store } from "../../app/store"
 import { useState } from "react"
 import { useAppDispatch } from "../../app/hooks"
-import { cardsActions } from "../../features/CardList/cardsSlice"
+import { cardsActions } from "../../features/Cards/cardsSlice"
 
 export interface CardProps {
   id: string
@@ -26,14 +26,17 @@ const Card = ({ id, catsFact, imgUrl }: CardProps) => {
 
   const handleClickDislike = () => {
     console.log("До")
-    console.log(store.getState().cardsData.data)
+    console.log(store.getState().cardData.data)
     dispatch(cardsActions.cardRemove(id))
     console.log("После")
-    console.log(store.getState().cardsData.data)
+    console.log(store.getState().cardData.data)
   }
 
   return (
-    <div className="relative h-[330px] w-[350px] overflow-hidden rounded-xl border p-5 shadow hover:bg-slate-100">
+    <div
+      data-like={like}
+      className="relative h-[330px] w-[350px] overflow-hidden rounded-xl border p-5 shadow hover:bg-slate-100"
+    >
       <Link
         className="absolute bottom-0 left-0 right-0 top-0"
         to={`/card/${id}`}

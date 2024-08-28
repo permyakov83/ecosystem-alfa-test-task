@@ -1,4 +1,4 @@
-import CardList from "../features/CardList/CardList"
+import CardList from "../features/Cards/Cards"
 
 const Home = () => {
   return (

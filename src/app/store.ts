@@ -1,14 +1,16 @@
 import type { Action, ThunkAction } from "@reduxjs/toolkit"
 import { combineSlices, configureStore } from "@reduxjs/toolkit"
 import { setupListeners } from "@reduxjs/toolkit/query"
-import { factsApiSlice } from "../features/CardList/factsApiSlice"
-import { imagesApiSlice } from "../features/CardList/imagesApiSlice"
-import cardsSlice from "../features/CardList/cardsSlice"
+import { factsApiSlice } from "../features/Cards/factsApiSlice"
+import { imagesApiSlice } from "../features/Cards/imagesApiSlice"
+import cardsSlice from "../features/Cards/cardsSlice"
 
 // `combineSlices` automatically combines the reducers using
 // their `reducerPath`s, therefore we no longer need to call `combineReducers`.
-const rootReducer = combineSlices(factsApiSlice, imagesApiSlice, {
-  cardsData: cardsSlice,
+const rootReducer = combineSlices({
+  [factsApiSlice.reducerPath]: factsApiSlice.reducer,
+  [imagesApiSlice.reducerPath]: imagesApiSlice.reducer,
+  cardData: cardsSlice,
 })
 // Infer the `RootState` type from the root reducer
 export type RootState = ReturnType<typeof rootReducer>

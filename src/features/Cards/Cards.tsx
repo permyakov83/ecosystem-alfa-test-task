@@ -1,13 +1,13 @@
 import { useAppDispatch } from "../../app/hooks"
 import { type AppDispatch, store } from "../../app/store"
-import Card from "../../components/Card/Card"
+import CardList from "../../components/CardList/CardList"
 import { useGetFactsQuery } from "./factsApiSlice"
 import { useGetImagesQuery } from "./imagesApiSlice"
 import { type TCardsData } from "../../hooks/useGetCardsData"
 import { DataMerging } from "../../utils/dataMerging"
 import { cardsActions } from "./cardsSlice"
 
-const CardList = () => {
+const Card = () => {
   const dispatch = useAppDispatch<AppDispatch>()
 
   const facts = useGetFactsQuery(10)
@@ -44,35 +44,25 @@ const CardList = () => {
 
     dispatch(cardsActions.addCardsData(cards.data))
 
-    const cardsData = store.getState().cardsData.data
+    const cardsData = store.getState().cardData.data
 
-    store.subscribe(() => {
-      return (
-        <>
-          {cardsData.length === 0 ? (
-            <div className="p-10">
-              Что то пошло не так и данные не загрузились...{" "}
-              <span className="text-xl font-bold text-red-500">:(</span>
-            </div>
-          ) : (
-            <ul className="flex flex-wrap justify-center gap-6 rounded-lg p-8">
-              {cardsData.map(item => (
-                <li key={item.id}>
-                  <Card
-                    id={item.id}
-                    imgUrl={item.imgUrl}
-                    catsFact={item.catsFact}
-                  />
-                </li>
-              ))}
-            </ul>
-          )}
-        </>
-      )
-    })
+    console.log(cardsData)
+
+    return (
+      <>
+        {cardsData.length === 0 ? (
+          <div className="p-10">
+            Что то пошло не так и данные не загрузились...{" "}
+            <span className="text-xl font-bold text-red-500">:(</span>
+          </div>
+        ) : (
+          <CardList data={cardsData} />
+        )}
+      </>
+    )
   }
 
   return null
 }
 
-export default CardList
+export default Card
