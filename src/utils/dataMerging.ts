@@ -15,6 +15,7 @@ export function DataMerging({ facts, images }: IDataMergingInput): CardProps[] {
   for (let i = 0; i < facts.data.length; i++) {
     cardListData[i] = {
       id: images[i].id,
+      like: false,
       imgUrl: images[i].url,
       catsFact: facts.data[i],
     }

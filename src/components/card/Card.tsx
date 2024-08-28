@@ -11,17 +11,20 @@ import { cardsActions } from "../../features/Cards/cardsSlice"
 
 export interface CardProps {
   id: string
+  like: boolean
   catsFact: string
   imgUrl: string
 }
 
-const Card = ({ id, catsFact, imgUrl }: CardProps) => {
+const Card = ({ id, like, catsFact, imgUrl }: CardProps) => {
   const dispatch = useAppDispatch<AppDispatch>()
 
-  const [like, setLike] = useState(false)
+  const [likeState, setLikeState] = useState(like)
 
   const handleClickLike = () => {
-    setLike(!like)
+    setLikeState(!likeState)
+    dispatch(cardsActions.likeToggle(id))
+    console.log(store.getState().cardData.data)
   }
 
   const handleClickDislike = () => {
@@ -34,7 +37,7 @@ const Card = ({ id, catsFact, imgUrl }: CardProps) => {
 
   return (
     <div
-      data-like={like}
+      data-like={likeState}
       className="relative h-[330px] w-[350px] overflow-hidden rounded-xl border p-5 shadow hover:bg-slate-100"
     >
       <Link
@@ -54,7 +57,7 @@ const Card = ({ id, catsFact, imgUrl }: CardProps) => {
         handleClick={handleClickLike}
         className="right-8 top-8 z-10 hover:scale-125"
       >
-        {like ? <FcLike size={32} /> : <FcLikePlaceholder size={32} />}
+        {likeState ? <FcLike size={32} /> : <FcLikePlaceholder size={32} />}
       </IconButton>
       <IconButton
         handleClick={handleClickDislike}

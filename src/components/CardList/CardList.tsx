@@ -9,7 +9,12 @@ const CardList = (cardsData: TCardsData) => {
     <ul className="flex flex-wrap justify-center gap-6 rounded-lg p-8">
       {cardsData.data.map(item => (
         <li key={item.id}>
-          <Card id={item.id} imgUrl={item.imgUrl} catsFact={item.catsFact} />
+          <Card
+            like={item.like}
+            id={item.id}
+            imgUrl={item.imgUrl}
+            catsFact={item.catsFact}
+          />
         </li>
       ))}
     </ul>

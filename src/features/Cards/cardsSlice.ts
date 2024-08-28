@@ -22,6 +22,10 @@ export const cardsSlice = createSlice({
         state.data.splice(index, 1)
       }
     },
+    likeToggle: (state, actions: PayloadAction<string>) => {
+      const card = state.data.find(item => item.id === actions.payload)
+      if (card !== undefined) card.like = !card.like
+    },
   },
 })
 

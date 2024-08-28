@@ -6,8 +6,11 @@ import { useGetImagesQuery } from "./imagesApiSlice"
 import { type TCardsData } from "../../hooks/useGetCardsData"
 import { DataMerging } from "../../utils/dataMerging"
 import { cardsActions } from "./cardsSlice"
+import { Switch } from "@/components/ui/switch"
+import { useState } from "react"
 
 const Card = () => {
+  const [likeSwitch, setLikeSwitch] = useState(false)
   const dispatch = useAppDispatch<AppDispatch>()
 
   const facts = useGetFactsQuery(10)
@@ -42,23 +45,33 @@ const Card = () => {
       }),
     }
 
+    if (cards.data.length === 0)
+      return (
+        <div className="p-10">
+          Что то пошло не так и данные не загрузились...{" "}
+          <span className="text-xl font-bold text-red-500">:(</span>
+        </div>
+      )
+
     dispatch(cardsActions.addCardsData(cards.data))
 
     const cardsData = store.getState().cardData.data
 
-    console.log(cardsData)
-
     return (
-      <>
-        {cardsData.length === 0 ? (
-          <div className="p-10">
-            Что то пошло не так и данные не загрузились...{" "}
-            <span className="text-xl font-bold text-red-500">:(</span>
-          </div>
-        ) : (
+      <div className="flex flex-col items-center">
+        <div className="flex gap-5">
+          <Switch
+            checked={likeSwitch}
+            onClick={() => setLikeSwitch(!likeSwitch)}
+          />
+          <span>Показать карточки с лайком</span>
+        </div>
+        {!likeSwitch ? (
           <CardList data={cardsData} />
+        ) : (
+          <CardList data={cardsData.filter(card => card.like === true)} />
         )}
-      </>
+      </div>
     )
   }
 
